@@ -1,0 +1,56 @@
+[2025-06-17 16:06:14,017] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8089 (http)
+[2025-06-17 16:06:14,041] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8089"]
+[2025-06-17 16:06:14,044] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+[2025-06-17 16:06:14,045] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.41]
+[2025-06-17 16:06:14,147] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+[2025-06-17 16:06:14,147] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2353 ms
+[2025-06-17 16:06:14,399] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[2025-06-17 16:06:14,490] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.15.Final
+[2025-06-17 16:06:14,555] INFO  facenet.car_management.CarManagementApplication - Starting CarManagementApplication using Java 17.0.12 with PID 17628 (C:\Users\ngman\Downloads\car_management\target\classes started by ngman in C:\Users\ngman\Downloads\car_management)
+[2025-06-17 16:06:14,567] INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+[2025-06-17 16:06:14,567] INFO  facenet.car_management.CarManagementApplication - No active profile set, falling back to 1 default profile: "default"
+[2025-06-17 16:06:15,013] INFO  org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+[2025-06-17 16:06:15,066] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+[2025-06-17 16:06:15,178] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.mariadb.jdbc.Connection@46994f26
+[2025-06-17 16:06:15,180] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+[2025-06-17 16:06:15,219] WARN  org.hibernate.orm.deprecation - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2025-06-17 16:06:15,242] INFO  org.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 11.8.2
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+[2025-06-17 16:06:15,526] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2025-06-17 16:06:15,623] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 85 ms. Found 7 JPA repository interfaces.
+[2025-06-17 16:06:16,206] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8089 (http)
+[2025-06-17 16:06:16,304] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1677 ms
+[2025-06-17 16:06:16,502] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[2025-06-17 16:06:16,525] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[2025-06-17 16:06:16,604] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.15.Final
+[2025-06-17 16:06:16,609] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2025-06-17 16:06:16,658] INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+[2025-06-17 16:06:16,931] INFO  org.springframework.data.jpa.repository.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+[2025-06-17 16:06:16,985] INFO  org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+[2025-06-17 16:06:17,019] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+[2025-06-17 16:06:17,134] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.mariadb.jdbc.Connection@5c79c5ec
+[2025-06-17 16:06:17,136] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+[2025-06-17 16:06:17,168] WARN  org.hibernate.orm.deprecation - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2025-06-17 16:06:17,191] INFO  org.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 11.8.2
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+[2025-06-17 16:06:18,195] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[2025-06-17 16:06:18,248] INFO  org.springframework.validation.beanvalidation.OptionalValidatorFactoryBean - Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+[2025-06-17 16:06:18,760] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8089 (http) with context path '/'
+[2025-06-17 16:06:18,774] INFO  facenet.car_management.CarManagementApplication - Started CarManagementApplication in 7.584 seconds (process running for 8.953)
+[2025-06-17 16:06:18,776] INFO  org.springframework.boot.web.embedded.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+[2025-06-17 16:06:19,030] INFO  org.springframework.boot.web.embedded.tomcat.GracefulShutdown - Graceful shutdown complete
+[2025-06-17 16:06:19,034] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+[2025-06-17 16:06:19,036] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+[2025-06-17 16:06:19,045] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
