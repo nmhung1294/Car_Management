@@ -8,11 +8,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/brands")
+@RequestMapping("api/v1/brands")
 public class ThuongHieuController {
-    @Autowired
-    ThuongHieuService thuongHieuService;
-
     /**
      * Tạo bản ghi mới, gọi đến hàm trong ThuongHieuService
      * @param thuongHieuDTO bản ghi của hãng xe
@@ -61,4 +58,7 @@ public class ThuongHieuController {
     public void delete(@PathVariable String hangXe){
         thuongHieuService.deleteBrand(hangXe);
     }
+
+    @Autowired
+    ThuongHieuService thuongHieuService;
 }

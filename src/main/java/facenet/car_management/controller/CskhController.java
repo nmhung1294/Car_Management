@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/care")
+@RequestMapping("api/v1/care")
 public class CskhController {
     @Autowired
     CskhService cskhService;

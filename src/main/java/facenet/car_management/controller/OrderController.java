@@ -9,11 +9,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/orders")
+@RequestMapping("api/v1/orders")
 
 public class OrderController {
-    @Autowired
-    DonHangService orderService;
 
     @PostMapping
     public ResponseEntity<DonHangDTO> createOrder(@RequestBody DonHangDTO donHangDTO) {
@@ -34,4 +32,7 @@ public class OrderController {
     public List<DonHangDTO> getOrderStatus(@PathVariable Integer status) {
         return orderService.getOrdersByStatus(status);
     }
+
+    @Autowired
+    DonHangService orderService;
 }

@@ -1,4 +1,0 @@
-[2025-06-17 16:06:11,715] INFO  facenet.car_management.CarManagementApplication - Starting CarManagementApplication using Java 17.0.12 with PID 3176 (C:\Users\ngman\Downloads\car_management\target\classes started by ngman in C:\Users\ngman\Downloads\car_management)
-[2025-06-17 16:06:11,728] INFO  facenet.car_management.CarManagementApplication - No active profile set, falling back to 1 default profile: "default"
-[2025-06-17 16:06:13,059] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-[2025-06-17 16:06:13,192] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 116 ms. Found 7 JPA repository interfaces.

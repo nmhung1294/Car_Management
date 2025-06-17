@@ -1,13 +1,17 @@
 package facenet.car_management.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.Date;
 
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class DonHangDTO {
     private String maDonHang;
     private String maNV;
@@ -24,5 +28,9 @@ public class DonHangDTO {
         this.maXe = maXe;
         this.ngay = ngay;
         this.status = status;
+    }
+
+    public DonHangDTO() {
+
     }
 }

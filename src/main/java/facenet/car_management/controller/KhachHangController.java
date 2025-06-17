@@ -9,10 +9,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/customers")
+@RequestMapping("api/v1/customers")
 public class KhachHangController {
-    @Autowired
-    private KhachHangService customerService;
 
     @GetMapping
     public ResponseEntity<List<KhachHangDTO>> getCustomers() {
@@ -33,5 +31,7 @@ public class KhachHangController {
     public ResponseEntity<KhachHangDTO> updateCustomer(@RequestBody KhachHangDTO customerDTO) {
         return ResponseEntity.ok(customerService.updateCustomer(customerDTO));
     }
+    @Autowired
+    private KhachHangService customerService;
 }
 

@@ -20,12 +20,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 @Service
 public class ImageService {
-    @Autowired
-    private ImageRepository imageRepository;
-    @Value("${app.upload-dir}")
-    private String uploadDir;
-    Logger logger = LogManager.getLogger();
-
     /**
      * Hàm này lưu danh sách ảnh của một hãng xe
      * @param hangXe tên hãng xe
@@ -37,11 +31,13 @@ public class ImageService {
         Image img = new Image();
         ThuongHieu thuongHieu = new ThuongHieu();
         //Xử lý danh sách file
+        logger.info("Bắt đầu xử lý danh sách file");
         for(MultipartFile file : files){
             Date time = new Date(System.currentTimeMillis());
             //Tạo tên mơ
             String new_name = hangXe + time.toString().replaceAll(" ", "_").replaceAll(":","_") + ".png";
             Path filePath = Paths.get(uploadDir + new_name);
+            logger.info("Lưu fie vào thư mục và lưu đường dẫn vào DB, file", file.getOriginalFilename());
             try{
                 logger.info(filePath.toString());
                 //Lưu file vào thư mục
@@ -51,10 +47,12 @@ public class ImageService {
                 img.setPath(new_name);
                 //Lưu đường dẫn file vào cơ sở dữ liệu
                 imageRepository.save(img);
+                logger.debug("Lưu thành công");
                 fileNames.add(new_name);
             }
             catch(Exception ex){
-                logger.error(ex.getMessage());
+                logger.error("Đã có lỗi xảy ra", ex.getMessage());
+                fileNames.add("Lỗi");
             }
         }
         return  fileNames;
@@ -72,18 +70,22 @@ public class ImageService {
         nhanSu.setMaNV(maNV);
         img.setNhanSu(nhanSu);
         Date time = new Date(System.currentTimeMillis());
+        logger.info("Bắt đầu xử lý ảnh nhân sự");
         //Xử lý việc thay tên file
         String newNameFile = maNV + time.toString().replaceAll(" ", "_").replaceAll(":","_") + ".png";
         Path filePath = Paths.get(uploadDir + newNameFile);
         try{
+            logger.info("Bắt đầu lưu");
             //CHuyển file vào vị trí lưu
             file.transferTo(filePath.toFile());
             logger.info(filePath.toString());
             img.setPath(filePath.toString());
             //Lưu đường dẫn file vào cơ sở dữ liệu
             imageRepository.save(img);
+            logger.debug("Lưu thành công", file.getOriginalFilename());
         } catch (Exception e) {
-            logger.debug(e.getMessage());
+            logger.error(e.getMessage());
+            newNameFile="Đã xảy ra lỗi";
         }
         return newNameFile;
     }
@@ -100,10 +102,12 @@ public class ImageService {
         Xe xe = new Xe();
         //Xử lý danh sách file
         for(MultipartFile file : files){
+            logger.info("Bắt đầu xử lý danh sách ảnh xe");
             Date time = new Date(System.currentTimeMillis());
             String new_name = maXe + time.toString().replaceAll(" ", "_").replaceAll(":","_") + ".png";
             Path filePath = Paths.get(uploadDir + new_name);
             try{
+                logger.info("Bắt đầu lưu");
                 logger.info(filePath.toString());
                 //Lưu file vào một vị trí nào đó
                 file.transferTo(filePath.toFile());
@@ -112,10 +116,12 @@ public class ImageService {
                 img.setPath(new_name);
                 //Lưu đường dẫn file vào cơ sở dữ liệu
                 imageRepository.save(img);
+                logger.debug("Lưu thành công",  file.getOriginalFilename());
                 fileNames.add(new_name);
             }
             catch(Exception ex){
                 logger.error(ex.getMessage());
+                fileNames.add("Đã xảy ra lỗi");
             }
         }
         return  fileNames;
@@ -127,7 +133,15 @@ public class ImageService {
      * @return danh sách đường dẫn ảnh của xe đó
      */
     public List<String> getAllCarImg(String maXe){
-        return imageRepository.findCarImgByCode(maXe);
+        try{
+            logger.info("Lấy thông tin xe bằng mã ", maXe);
+            return imageRepository.findCarImgByCode(maXe);
+        } catch(Exception ex){
+            logger.error("Đã có lỗi xảy ra", ex.getMessage());
+            List<String> fileNames = new ArrayList<>();
+            fileNames.add("Đã có lỗi");
+            return fileNames;
+        }
     }
 
     /**
@@ -136,7 +150,15 @@ public class ImageService {
      * @return danh sách đường dẫn các ảnh của hãng xe
      */
     public List<String> getAllBrandImg(String hangXe){
-        return imageRepository.findBrandImgByName(hangXe);
+        try{
+            logger.info("Bắt đầu lấy danh sách ảnh của hãng xe", hangXe);
+            return imageRepository.findBrandImgByName(hangXe);
+        } catch (Exception e) {
+            logger.error("Đã có lỗi xảy ra", e.getMessage());
+            List<String> fileNames = new ArrayList<>();
+            fileNames.add("Đã có lỗi");
+            return fileNames;
+        }
     }
 
     /**
@@ -145,8 +167,19 @@ public class ImageService {
      * @return đường dẫn tới ảnh của người đó
      */
     public String getHRImg(String maNV){
-        return imageRepository.getHrImgByCode(maNV);
-    }
+        try{
+            logger.info("Bắt đầu lấy ảnh nhân sự");
+            return imageRepository.getHrImgByCode(maNV);
+        } catch(Exception ex){
+            logger.error("Đã có lỗi", ex.getMessage());
+            return "Có lỗi xảy ra" + ex.getMessage();
 
+        }
+    }
+    @Autowired
+    private ImageRepository imageRepository;
+    @Value("${app.upload-dir}")
+    private String uploadDir;
+    Logger logger = LogManager.getLogger();
 
 }
