@@ -11,7 +11,6 @@ import java.util.Date;
 @Getter
 @Setter
 @AllArgsConstructor
-@NoArgsConstructor
 public class DonHangDTO {
     private String maDonHang;
     private String maNV;
